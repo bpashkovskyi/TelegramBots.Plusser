@@ -23,6 +23,6 @@ public class SubscribeMeUpdateHandler : UpdateHandler
         var groupTelegramId = message.Chat.Id;
         var memberTelegramId = message.From!.Id;
 
-        await _subscriptionService.SubscribeToGroupGathering(memberTelegramId, groupTelegramId);
+        await _subscriptionService.SubscribeToGroupGathering(groupTelegramId, memberTelegramId);
     }
 }

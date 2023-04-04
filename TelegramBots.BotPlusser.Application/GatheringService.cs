@@ -76,7 +76,7 @@ public class GatheringService : IGatheringService
 
         if (gathering.PinnedMessageId != null)
         {
-            await _telegramMessageService.UpdateGatheringChatPinnedMessageAsync(gathering);
+            await _telegramMessageService.UnpinChatMessageAsync(gathering);
             await _telegramMessageService.SendTextMessageAsync(gathering.Group!.TelegramId, $"Подію \"{gathering.Name}\" видалено");
         }
     }
@@ -87,7 +87,7 @@ public class GatheringService : IGatheringService
         if (group!.NonDraftGatherings.Count > 1)
         {
             // let user choose which event to delete
-            await _telegramMessageService.SendGatheringChooseMessageAsync(group, "deleteevent");
+            await _telegramMessageService.SendGatheringChooseMessageAsync(group, "deletegathering");
         }
         else
         {

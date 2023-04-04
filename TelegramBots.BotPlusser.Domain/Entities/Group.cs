@@ -16,7 +16,7 @@ public class Group : BaseEntity
 
     public long TelegramId { get; }
 
-    public string Name { get; } = null!;
+    public string Name { get; private set; } = null!;
 
     public IReadOnlyCollection<Gathering> Gatherings => _gatherings;
 

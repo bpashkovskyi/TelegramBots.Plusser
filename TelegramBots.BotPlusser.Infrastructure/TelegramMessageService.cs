@@ -96,9 +96,7 @@ public class TelegramMessageService : ITelegramMessageService
         {
             try
             {
-                var pinnedMessage =
-                    await _telegramBotClient.EditMessageTextAsync(chat.TelegramId, gathering.PinnedMessageId.Value,
-                        eventText);
+                var pinnedMessage = await _telegramBotClient.EditMessageTextAsync(chat.TelegramId, gathering.PinnedMessageId.Value, eventText);
                 pinnedMessageId = pinnedMessage.MessageId;
             }
             catch
@@ -128,5 +126,10 @@ public class TelegramMessageService : ITelegramMessageService
         }
 
         gathering.PinnedMessageId = pinnedMessageId;
+    }
+
+    public async Task UnpinChatMessageAsync(Gathering gathering)
+    {
+        await _telegramBotClient.UnpinChatMessageAsync(gathering.Group!.TelegramId, gathering.PinnedMessageId);
     }
 }

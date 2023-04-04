@@ -26,12 +26,14 @@ public class Gathering : BaseEntity
 
     public bool IsDraft { get; private set; }
 
-    [Message("Вкажіть назву події")] public string? Name { get; private set; }
+    [Message("Вкажіть назву події")]
+    public string? Name { get; private set; }
 
     [Message("Вкажіть максимальну кількість учасників події")]
-    private int MaxParticipantsCount { get; set; }
+    public int? MaxParticipantsCount { get; private set; }
 
-    [Message("Додайте опис події")] private string? Description { get; set; }
+    [Message("Додайте опис події")]
+    public string? Description { get; private set; }
 
     public int GroupId { get; private set; }
 
@@ -45,7 +47,7 @@ public class Gathering : BaseEntity
 
     public IReadOnlyCollection<Attendee> Attendees => _attendees;
 
-    private string? PropertyToSetName { get; set; }
+    public string? PropertyToSetName { get; private set; }
 
     private IEnumerable<Member> GoingMembers => Attendees
         .Where(attendee => attendee is { Status: AttendanceStatus.Going, Member: { } })
@@ -115,7 +117,7 @@ public class Gathering : BaseEntity
 
         static string ConvertMembersListToString(List<Member> members)
         {
-            return string.Join(", ", members.Select(user => user.DisplayName));
+            return string.Join(", ", members.Select(member => member.DisplayName));
         }
     }
 

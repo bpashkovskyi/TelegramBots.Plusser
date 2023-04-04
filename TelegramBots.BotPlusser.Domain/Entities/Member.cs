@@ -23,9 +23,9 @@ public class Member : BaseEntity
 
     public long? TelegramId { get; }
 
-    private string? FirstName { get; }
+    public string? FirstName { get; private set; }
 
-    private string? Name { get; }
+    public string? Name { get; private set; }
 
     public string DisplayName => TelegramId.HasValue ? $"{FirstName!}" : Name!;
 

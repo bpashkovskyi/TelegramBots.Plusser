@@ -29,7 +29,7 @@ public class CreateGatheringUpdateHandler : UpdateHandler
         {
             if (memberInfo.Status is ChatMemberStatus.Administrator or ChatMemberStatus.Creator)
             {
-                var creatorTelegramId = message.Chat.Id;
+                var creatorTelegramId = message.From.Id;
                 var groupTelegramId = message.Chat.Id;
 
                 await _gatheringService.CreateGatheringAsync(creatorTelegramId, groupTelegramId);

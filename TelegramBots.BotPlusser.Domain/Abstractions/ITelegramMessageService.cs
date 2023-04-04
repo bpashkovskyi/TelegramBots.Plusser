@@ -17,4 +17,5 @@ public interface ITelegramMessageService
     Task SendUnsubscribeGatheringChooseMessageAsync(string memberName, Group group);
 
     Task UpdateGatheringChatPinnedMessageAsync(Gathering gathering);
+    Task UnpinChatMessageAsync(Gathering gathering);
 }
