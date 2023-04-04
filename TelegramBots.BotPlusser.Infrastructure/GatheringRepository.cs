@@ -14,7 +14,7 @@ public class GatheringRepository : IGatheringRepository
         _plusserContext = plusserContext;
     }
 
-    public async Task<Gathering?> GetNonDraftGatheringsByCreatorAsync(long creatorTelegramId)
+    public async Task<Gathering?> GetNonDraftGatheringCreatedByAsync(long creatorTelegramId)
     {
         return await _plusserContext.Gatherings
             .Include(gathering => gathering.Group)

@@ -1,6 +1,4 @@
-﻿using Telegram.Bot.Types;
-
-namespace TelegramBots.BotPlusser.Domain.Entities;
+﻿namespace TelegramBots.BotPlusser.Domain.Entities;
 
 public class Group : BaseEntity
 {

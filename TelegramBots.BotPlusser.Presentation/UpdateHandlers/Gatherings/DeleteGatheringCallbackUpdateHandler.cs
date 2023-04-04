@@ -22,7 +22,7 @@ public class DeleteGatheringCallbackUpdateHandler : UpdateHandler
 
         var gatheringId = int.Parse(Arguments["gatheringId"], CultureInfo.InvariantCulture);
 
-        await _gatheringService.DeleteGathering(gatheringId);
+        await _gatheringService.DeleteGatheringAsync(gatheringId);
 
         await TelegramBotClient.DeleteMessageAsync(message.Chat.Id, message.MessageId);
     }

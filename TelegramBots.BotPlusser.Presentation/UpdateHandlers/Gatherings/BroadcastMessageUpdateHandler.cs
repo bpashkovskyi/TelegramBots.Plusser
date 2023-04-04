@@ -21,6 +21,6 @@ public class BroadcastMessageUpdateHandler : UpdateHandler
     {
         var messageText = Arguments["message"];
 
-        await _gatheringService.BroadcastMessage(messageText);
+        await _gatheringService.BroadcastMessageAsync(messageText);
     }
 }

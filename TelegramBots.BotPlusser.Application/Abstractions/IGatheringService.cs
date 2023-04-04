@@ -2,15 +2,15 @@
 
 public interface IGatheringService
 {
-    Task GetNextGatheringPropertyMessage(long creatorTelegramId, string propertyValue);
+    Task GetNextGatheringPropertyMessageAsync(long creatorTelegramId, string propertyValue);
 
-    Task CreateGathering(long creatorTelegramId, long groupTelegramId);
+    Task CreateGatheringAsync(long creatorTelegramId, long groupTelegramId);
 
-    Task DeleteGathering(int gatheringId);
+    Task DeleteGatheringAsync(int gatheringId);
 
-    Task DeleteGroupGathering(long groupTelegramId);
+    Task DeleteGroupGatheringAsync(long groupTelegramId);
 
-    Task RefreshGroupGroupGatherings(long groupTelegramId);
+    Task RefreshGroupGroupGatheringsAsync(long groupTelegramId);
 
-    Task BroadcastMessage(string messageText);
+    Task BroadcastMessageAsync(string messageText);
 }

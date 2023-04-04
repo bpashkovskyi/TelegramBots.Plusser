@@ -32,7 +32,7 @@ public class CreateGatheringUpdateHandler : UpdateHandler
                 var creatorTelegramId = message.Chat.Id;
                 var groupTelegramId = message.Chat.Id;
 
-                await _gatheringService.CreateGathering(creatorTelegramId, groupTelegramId);
+                await _gatheringService.CreateGatheringAsync(creatorTelegramId, groupTelegramId);
             }
             else
             {

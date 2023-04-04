@@ -4,7 +4,7 @@ namespace TelegramBots.BotPlusser.Domain.Abstractions;
 
 public interface IGatheringRepository
 {
-    Task<Gathering?> GetNonDraftGatheringsByCreatorAsync(long creatorTelegramId);
+    Task<Gathering?> GetNonDraftGatheringCreatedByAsync(long creatorTelegramId);
 
     Task<Gathering> GetGatheringAsync(int id);
 

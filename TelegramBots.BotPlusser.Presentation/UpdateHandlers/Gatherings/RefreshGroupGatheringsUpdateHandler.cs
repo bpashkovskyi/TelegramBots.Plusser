@@ -24,7 +24,7 @@ public class RefreshGroupGatheringsUpdateHandler : UpdateHandler
         if (memberInfo.Status is ChatMemberStatus.Administrator or ChatMemberStatus.Creator)
         {
             var groupTelegramId = message.Chat.Id;
-            await _gatheringService.RefreshGroupGroupGatherings(groupTelegramId);
+            await _gatheringService.RefreshGroupGroupGatheringsAsync(groupTelegramId);
         }
         else
         {

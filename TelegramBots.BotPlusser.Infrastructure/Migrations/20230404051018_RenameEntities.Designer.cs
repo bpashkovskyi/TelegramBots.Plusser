@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TelegramBots.BotPlusser.Infrastructure;
 
@@ -11,9 +12,10 @@ using TelegramBots.BotPlusser.Infrastructure;
 namespace TelegramBots.BotPlusser.Migrations
 {
     [DbContext(typeof(PlusserContext))]
-    partial class PlusserContextModelSnapshot : ModelSnapshot
+    [Migration("20230404051018_RenameEntities")]
+    partial class RenameEntities
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,59 +24,6 @@ namespace TelegramBots.BotPlusser.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
-
-            modelBuilder.Entity("TelegramBots.BotPlusser.Domain.Entities.Group", b =>
-            {
-                b.Property<int>("Id")
-                    .ValueGeneratedOnAdd()
-                    .HasColumnType("int");
-
-                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                b.Property<long>("TelegramId")
-                    .HasColumnType("bigint");
-
-                b.HasKey("Id");
-
-                b.HasIndex("TelegramId")
-                    .IsUnique();
-
-                b.ToTable("Groups", "plusser");
-            });
-
-            modelBuilder.Entity("TelegramBots.BotPlusser.Domain.Entities.Gathering", b =>
-            {
-                b.HasOne("TelegramBots.BotPlusser.Domain.Entities.Member", "Creator")
-                    .WithMany()
-                    .HasForeignKey("CreatorId")
-                    .OnDelete(DeleteBehavior.Restrict)
-                    .IsRequired();
-
-                b.HasOne("TelegramBots.BotPlusser.Domain.Entities.Group", "Group")
-                    .WithMany("Gatherings")
-                    .HasForeignKey("GroupId")
-                    .OnDelete(DeleteBehavior.Cascade)
-                    .IsRequired();
-
-                b.Navigation("Creator");
-
-                b.Navigation("Group");
-            });
-
-            modelBuilder.Entity("TelegramBots.BotPlusser.Domain.Entities.Gathering", b =>
-            {
-                b.Navigation("Attendees");
-            });
-
-            modelBuilder.Entity("TelegramBots.BotPlusser.Domain.Entities.Group", b =>
-            {
-                b.Navigation("Gatherings");
-            });
-
-            modelBuilder.Entity("TelegramBots.BotPlusser.Domain.Entities.Member", b =>
-            {
-                b.Navigation("Attendees");
-            });
 
             modelBuilder.Entity("TelegramBots.BotPlusser.Domain.Entities.Attendee", b =>
                 {
@@ -134,6 +83,24 @@ namespace TelegramBots.BotPlusser.Migrations
                     b.ToTable("Gatherings", "plusser");
                 });
 
+            modelBuilder.Entity("TelegramBots.BotPlusser.Domain.Entities.Group", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<long>("TelegramId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TelegramId")
+                        .IsUnique();
+
+                    b.ToTable("Groups", "plusser");
+                });
 
             modelBuilder.Entity("TelegramBots.BotPlusser.Domain.Entities.Member", b =>
                 {
@@ -174,7 +141,39 @@ namespace TelegramBots.BotPlusser.Migrations
                     b.Navigation("Member");
                 });
 
-            
+            modelBuilder.Entity("TelegramBots.BotPlusser.Domain.Entities.Gathering", b =>
+                {
+                    b.HasOne("TelegramBots.BotPlusser.Domain.Entities.Member", "Creator")
+                        .WithMany()
+                        .HasForeignKey("CreatorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("TelegramBots.BotPlusser.Domain.Entities.Group", "Group")
+                        .WithMany("Gatherings")
+                        .HasForeignKey("GroupId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Creator");
+
+                    b.Navigation("Group");
+                });
+
+            modelBuilder.Entity("TelegramBots.BotPlusser.Domain.Entities.Gathering", b =>
+                {
+                    b.Navigation("Attendees");
+                });
+
+            modelBuilder.Entity("TelegramBots.BotPlusser.Domain.Entities.Group", b =>
+                {
+                    b.Navigation("Gatherings");
+                });
+
+            modelBuilder.Entity("TelegramBots.BotPlusser.Domain.Entities.Member", b =>
+                {
+                    b.Navigation("Attendees");
+                });
 #pragma warning restore 612, 618
         }
     }

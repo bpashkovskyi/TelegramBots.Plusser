@@ -6,29 +6,26 @@ namespace TelegramBots.BotPlusser.Application;
 
 public class GatheringService : IGatheringService
 {
-    private readonly IRollbar _rollbar;
     private readonly IGatheringRepository _gatheringRepository;
     private readonly IGroupRepository _groupRepository;
     private readonly IMemberRepository _memberRepository;
     private readonly ITelegramMessageService _telegramMessageService;
 
     public GatheringService(
-        IRollbar rollbar,
         IGatheringRepository gatheringRepository,
         IMemberRepository memberRepository,
         IGroupRepository groupRepository,
         ITelegramMessageService telegramMessageService)
     {
-        _rollbar = rollbar;
         _gatheringRepository = gatheringRepository;
         _memberRepository = memberRepository;
         _groupRepository = groupRepository;
         _telegramMessageService = telegramMessageService;
     }
 
-    public async Task GetNextGatheringPropertyMessage(long creatorTelegramId, string propertyValue)
+    public async Task GetNextGatheringPropertyMessageAsync(long creatorTelegramId, string propertyValue)
     {
-        var nonDraftGathering = await _gatheringRepository.GetNonDraftGatheringsByCreatorAsync(creatorTelegramId);
+        var nonDraftGathering = await _gatheringRepository.GetNonDraftGatheringCreatedByAsync(creatorTelegramId);
 
         nonDraftGathering!.SetPropertyValue(propertyValue);
 
@@ -47,13 +44,11 @@ public class GatheringService : IGatheringService
         await _gatheringRepository.SaveChangesAsync();
     }
 
-    public async Task CreateGathering(long creatorTelegramId, long groupTelegramId)
+    public async Task CreateGatheringAsync(long creatorTelegramId, long groupTelegramId)
     {
-        var gathering = await _gatheringRepository.GetNonDraftGatheringsByCreatorAsync(creatorTelegramId);
+        var gathering = await _gatheringRepository.GetNonDraftGatheringCreatedByAsync(creatorTelegramId);
         if (gathering != null)
         {
-            _rollbar.Warning($"User {creatorTelegramId} tried to create new event in {groupTelegramId}, but has draft event {gathering.Name} in chat {gathering.Group!.TelegramId} not completed");
-
             await _telegramMessageService.SendNonCompletedGatheringCreationMessageAsync(creatorTelegramId);
             return;
         }
@@ -66,18 +61,10 @@ public class GatheringService : IGatheringService
         await _gatheringRepository.AddAsync(gathering);
         await _gatheringRepository.SaveChangesAsync();
 
-        var firstQuestion = gathering.GetPropertyMessage();
-        if (firstQuestion != null)
-        {
-            await _telegramMessageService.SendTextMessageAsync(creatorTelegramId, firstQuestion);
-        }
-        else
-        {
-            await _telegramMessageService.SendErrorMessageAsync(creatorTelegramId);
-        }
+        await SendFirstPropertyMessageAsync(gathering, creatorTelegramId);
     }
 
-    public async Task DeleteGathering(int gatheringId)
+    public async Task DeleteGatheringAsync(int gatheringId)
     {
         var gathering = await _gatheringRepository.GetGatheringAsync(gatheringId);
 
@@ -94,7 +81,7 @@ public class GatheringService : IGatheringService
         }
     }
 
-    public async Task DeleteGroupGathering(long groupTelegramId)
+    public async Task DeleteGroupGatheringAsync(long groupTelegramId)
     {
         var group = await _groupRepository.GetGroupAsync(groupTelegramId);
         if (group!.NonDraftGatherings.Count > 1)
@@ -105,11 +92,11 @@ public class GatheringService : IGatheringService
         else
         {
             var gatheringId = group.NonDraftGatherings.First().Id;
-            await DeleteGathering(gatheringId);
+            await DeleteGatheringAsync(gatheringId);
         }
     }
 
-    public async Task RefreshGroupGroupGatherings(long groupTelegramId)
+    public async Task RefreshGroupGroupGatheringsAsync(long groupTelegramId)
     {
         var group = await _groupRepository.GetGroupAsync(groupTelegramId);
 
@@ -122,13 +109,26 @@ public class GatheringService : IGatheringService
         }
     }
 
-    public async Task BroadcastMessage(string messageText)
+    public async Task BroadcastMessageAsync(string messageText)
     {
         var groupsTelegramIds = await _groupRepository.GetGroupsTelegramIdsAsync();
 
         foreach (var groupTelegramId in groupsTelegramIds)
         {
             await _telegramMessageService.SendTextMessageAsync(groupTelegramId, messageText);
+        }
+    }
+
+    private async Task SendFirstPropertyMessageAsync(Gathering gathering, long creatorTelegramId)
+    {
+        var firstPropertyMessage = gathering.GetPropertyMessage();
+        if (firstPropertyMessage != null)
+        {
+            await _telegramMessageService.SendTextMessageAsync(creatorTelegramId, firstPropertyMessage);
+        }
+        else
+        {
+            await _telegramMessageService.SendErrorMessageAsync(creatorTelegramId);
         }
     }
 }

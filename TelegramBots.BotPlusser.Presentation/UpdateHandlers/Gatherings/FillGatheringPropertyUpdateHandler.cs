@@ -27,7 +27,7 @@ public class FillGatheringPropertyUpdateHandler : UpdateHandler
             var creatorTelegramId = message.From!.Id;
             var propertyValue = message.Text!;
 
-            await _gatheringService.GetNextGatheringPropertyMessage(creatorTelegramId, propertyValue);
+            await _gatheringService.GetNextGatheringPropertyMessageAsync(creatorTelegramId, propertyValue);
         }
         catch (FormatException formatException)
         {

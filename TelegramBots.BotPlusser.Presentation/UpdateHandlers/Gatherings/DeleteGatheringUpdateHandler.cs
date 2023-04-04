@@ -28,7 +28,7 @@ public class DeleteGatheringUpdateHandler : UpdateHandler
         {
             var groupTelegramId = message.Chat.Id;
 
-            await _gatheringService.DeleteGroupGathering(groupTelegramId);
+            await _gatheringService.DeleteGroupGatheringAsync(groupTelegramId);
 
             await TelegramBotClient.DeleteMessageAsync(message.Chat.Id, message.MessageId);
         }
