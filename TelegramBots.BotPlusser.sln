@@ -6,17 +6,18 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AA99E571-8C58-44F6-9A7A-67DFF253885A}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		azure-pipelines.yml = azure-pipelines.yml
 		Directory.Build.props = Directory.Build.props
 		TelegramBots.ruleset = TelegramBots.ruleset
 	EndProjectSection
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelegramBots.BotPlusser.Presentation", "TelegramBots.BotPlusser.Presentation/TelegramBots.BotPlusser.Presentation.csproj", "{B44CBED9-A79D-45F8-9E48-44BFC540EE6E}"
-EndProject	
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelegramBots.BotPlusser.Domain", "TelegramBots.BotPlusser.Domain\TelegramBots.BotPlusser.Domain.csproj", "{99769A02-3A24-449B-B791-3843ABCB4109}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelegramBots.BotPlusser.Presentation", "TelegramBots.BotPlusser.Presentation\TelegramBots.BotPlusser.Presentation.csproj", "{B44CBED9-A79D-45F8-9E48-44BFC540EE6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelegramBots.BotPlusser.Application", "TelegramBots.BotPlusser.Application\TelegramBots.BotPlusser.Application.csproj", "{50AB50CD-D502-4221-BDBD-74E984A0FC6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelegramBots.BotPlusser.Domain", "TelegramBots.BotPlusser.Domain\TelegramBots.BotPlusser.Domain.csproj", "{99769A02-3A24-449B-B791-3843ABCB4109}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelegramBots.BotPlusser.Infrastructure", "TelegramBots.BotPlusser.Infrastructure\TelegramBots.BotPlusser.Infrastructure.csproj", "{3E77D1DA-3960-4CCF-B6AE-7A69F8978827}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelegramBots.BotPlusser.Application", "TelegramBots.BotPlusser.Application\TelegramBots.BotPlusser.Application.csproj", "{50AB50CD-D502-4221-BDBD-74E984A0FC6E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelegramBots.BotPlusser.Infrastructure", "TelegramBots.BotPlusser.Infrastructure\TelegramBots.BotPlusser.Infrastructure.csproj", "{3E77D1DA-3960-4CCF-B6AE-7A69F8978827}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
