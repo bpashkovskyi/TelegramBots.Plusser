@@ -11,7 +11,7 @@ variables:
     value: 'TelegramBots.BotPlusser.Presentation'
 
   - name: AppName
-    value: 'ifplusser'
+    value: 'plusser'
     
   - name: AzureSubscription
     value: 'Pay-As-You-Go (1ac531e3-ffe9-4610-a52d-2b61f8151f33)'
