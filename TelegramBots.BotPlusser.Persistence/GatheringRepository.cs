@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using TelegramBots.BotPlusser.Domain.Abstractions;
-using TelegramBots.BotPlusser.Domain.Entities;
+using TelegramBots.BotPlusser.Domain.Model.Entities;
+using TelegramBots.BotPlusser.Persistence.Base;
 
-namespace TelegramBots.BotPlusser.Infrastructure;
+namespace TelegramBots.BotPlusser.Persistence;
 
 public class GatheringRepository : IGatheringRepository
 {

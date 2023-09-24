@@ -1,4 +1,4 @@
-﻿namespace TelegramBots.BotPlusser.Application.Abstractions;
+﻿namespace TelegramBots.BotPlusser.Application.Base;
 
 public interface ISubscriptionService
 {

@@ -1,4 +1,4 @@
-﻿namespace TelegramBots.BotPlusser.Domain.Enums;
+﻿namespace TelegramBots.BotPlusser.Domain.Model.Enums;
 
 public enum SubscriptionStatus
 {

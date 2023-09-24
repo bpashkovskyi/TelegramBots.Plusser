@@ -1,12 +1,13 @@
 ﻿using System.ComponentModel;
+using System.Globalization;
 using System.Reflection;
 using System.Text;
 
 using TelegramBots.BotPlusser.Domain.Attributes;
-using TelegramBots.BotPlusser.Domain.Enums;
-using TelegramBots.BotPlusser.Domain.ValueObjects;
+using TelegramBots.BotPlusser.Domain.Model.Enums;
+using TelegramBots.BotPlusser.Domain.Model.ValueObjects;
 
-namespace TelegramBots.BotPlusser.Domain.Entities;
+namespace TelegramBots.BotPlusser.Domain.Model.Entities;
 
 public class Gathering : BaseEntity
 {

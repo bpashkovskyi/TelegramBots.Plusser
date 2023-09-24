@@ -1,6 +1,6 @@
-﻿using TelegramBots.BotPlusser.Domain.Enums;
+﻿using TelegramBots.BotPlusser.Domain.Model.Enums;
 
-namespace TelegramBots.BotPlusser.Domain.Entities;
+namespace TelegramBots.BotPlusser.Domain.Model.Entities;
 
 public class Attendee : BaseEntity
 {

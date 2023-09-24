@@ -1,4 +1,4 @@
-﻿using TelegramBots.BotPlusser.Application.Abstractions;
+﻿using TelegramBots.BotPlusser.Application.Base;
 
 namespace TelegramBots.BotPlusser.Presentation.UpdateHandlers.SubscriptionCallback;
 

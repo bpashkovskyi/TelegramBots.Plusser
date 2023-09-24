@@ -1,6 +1,7 @@
-﻿using TelegramBots.BotPlusser.Application.Abstractions;
-using TelegramBots.BotPlusser.Domain.Abstractions;
-using TelegramBots.BotPlusser.Domain.Entities;
+﻿using TelegramBots.BotPlusser.Application.Base;
+using TelegramBots.BotPlusser.Domain.Model.Entities;
+using TelegramBots.BotPlusser.Infrastructure.Base;
+using TelegramBots.BotPlusser.Persistence.Base;
 
 namespace TelegramBots.BotPlusser.Application;
 

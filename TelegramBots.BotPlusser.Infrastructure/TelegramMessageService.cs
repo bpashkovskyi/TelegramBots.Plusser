@@ -1,7 +1,7 @@
 ﻿using Telegram.Bot.Types.ReplyMarkups;
 
-using TelegramBots.BotPlusser.Domain.Abstractions;
-using TelegramBots.BotPlusser.Domain.Entities;
+using TelegramBots.BotPlusser.Domain.Model.Entities;
+using TelegramBots.BotPlusser.Infrastructure.Base;
 
 namespace TelegramBots.BotPlusser.Infrastructure;
 

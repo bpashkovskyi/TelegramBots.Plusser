@@ -1,6 +1,6 @@
-﻿using TelegramBots.BotPlusser.Domain.Enums;
+﻿using TelegramBots.BotPlusser.Domain.Model.Enums;
 
-namespace TelegramBots.BotPlusser.Domain.ValueObjects;
+namespace TelegramBots.BotPlusser.Domain.Model.ValueObjects;
 
 public class UnSubscriptionResult
 {

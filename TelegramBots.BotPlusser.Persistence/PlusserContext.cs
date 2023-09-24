@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using TelegramBots.BotPlusser.Domain.Entities;
+using TelegramBots.BotPlusser.Domain.Model.Entities;
 
-namespace TelegramBots.BotPlusser.Infrastructure;
+namespace TelegramBots.BotPlusser.Persistence;
 
 public class PlusserContext : DbContext
 {

@@ -38,5 +38,6 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\TelegramBots.BotPlusser.Application\TelegramBots.BotPlusser.Application.csproj" />
 	  <ProjectReference Include="..\TelegramBots.BotPlusser.Infrastructure\TelegramBots.BotPlusser.Infrastructure.csproj" />
+	  <ProjectReference Include="..\TelegramBots.BotPlusser.Persistence\TelegramBots.BotPlusser.Persistence.csproj" />
 	</ItemGroup>
 </Project>

@@ -1,6 +1,6 @@
-﻿using TelegramBots.BotPlusser.Domain.Entities;
+﻿using TelegramBots.BotPlusser.Domain.Model.Entities;
 
-namespace TelegramBots.BotPlusser.Domain.Abstractions;
+namespace TelegramBots.BotPlusser.Infrastructure.Base;
 
 public interface ITelegramMessageService
 {

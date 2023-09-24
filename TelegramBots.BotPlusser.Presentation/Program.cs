@@ -4,9 +4,11 @@ using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.EntityFrameworkCore;
 
 using TelegramBots.BotPlusser.Application;
-using TelegramBots.BotPlusser.Application.Abstractions;
-using TelegramBots.BotPlusser.Domain.Abstractions;
+using TelegramBots.BotPlusser.Application.Base;
 using TelegramBots.BotPlusser.Infrastructure;
+using TelegramBots.BotPlusser.Infrastructure.Base;
+using TelegramBots.BotPlusser.Persistence;
+using TelegramBots.BotPlusser.Persistence.Base;
 using TelegramBots.Shared.Extensions;
 
 namespace TelegramBots.BotPlusser.Presentation;

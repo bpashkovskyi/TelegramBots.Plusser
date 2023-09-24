@@ -1,4 +1,4 @@
-﻿using TelegramBots.BotPlusser.Application.Abstractions;
+﻿using TelegramBots.BotPlusser.Application.Base;
 using TelegramBots.Shared.Extensions;
 
 namespace TelegramBots.BotPlusser.Presentation.UpdateHandlers.Gatherings;

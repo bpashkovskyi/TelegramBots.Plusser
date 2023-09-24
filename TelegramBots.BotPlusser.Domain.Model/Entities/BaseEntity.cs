@@ -1,4 +1,4 @@
-﻿namespace TelegramBots.BotPlusser.Domain.Entities;
+﻿namespace TelegramBots.BotPlusser.Domain.Model.Entities;
 
 public abstract class BaseEntity
 {

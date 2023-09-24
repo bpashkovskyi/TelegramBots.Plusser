@@ -1,9 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using TelegramBots.BotPlusser.Domain.Abstractions;
-using TelegramBots.BotPlusser.Domain.Entities;
+using Telegram.Bot;
 
-namespace TelegramBots.BotPlusser.Infrastructure;
+using TelegramBots.BotPlusser.Domain.Model.Entities;
+using TelegramBots.BotPlusser.Persistence.Base;
+
+namespace TelegramBots.BotPlusser.Persistence;
 
 public class MemberRepository : IMemberRepository
 {
