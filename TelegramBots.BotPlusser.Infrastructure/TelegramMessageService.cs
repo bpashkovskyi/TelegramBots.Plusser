@@ -120,7 +120,7 @@ public class TelegramMessageService : ITelegramMessageService
         else
         {
             var pinnedMessage = await _telegramBotClient.SendTextMessageAsync(chat.TelegramId, eventText);
-            await _telegramBotClient.PinChatMessageAsync(chat.TelegramId, pinnedMessage.MessageId, true);
+            await _telegramBotClient.PinChatMessageAsync(chat.TelegramId, pinnedMessage.MessageId, disableNotification: false);
 
             pinnedMessageId = pinnedMessage.MessageId;
         }
