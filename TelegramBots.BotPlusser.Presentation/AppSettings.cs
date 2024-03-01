@@ -1,6 +1,6 @@
 ﻿namespace TelegramBots.BotPlusser.Presentation;
 
-internal sealed class AppSettings
+internal class AppSettings
 {
     public const long BoId = 301371111;
 }

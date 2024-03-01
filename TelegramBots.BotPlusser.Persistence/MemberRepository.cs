@@ -41,7 +41,7 @@ public class MemberRepository : IMemberRepository
     public async Task DeleteMembersNotRegisteredInTelegramNotAttendingAnyGatheringsAsync()
     {
         var membersToRemove = await _plusserContext.Members
-            .Where(user => !user.TelegramId.HasValue && user.Attendees.Count != 0)
+            .Where(user => !user.TelegramId.HasValue && !user.Attendees.Any())
             .ToListAsync();
 
         foreach (var memberToRemove in membersToRemove)
