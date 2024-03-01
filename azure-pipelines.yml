@@ -6,16 +6,7 @@ trigger:
     - main
 
 variables:
-
-  - name: ProjectPath
-    value: 'TelegramBots.BotPlusser.Presentation'
-
-  - name: AppName
-    value: 'plusser'
-    
-  - name: AzureSubscription
-    value: 'Pay-As-You-Go (1ac531e3-ffe9-4610-a52d-2b61f8151f33)'
-
+- group: bot-plusser
 
 stages:
   - stage: Build
